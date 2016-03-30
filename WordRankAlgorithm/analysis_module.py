@@ -38,8 +38,8 @@ class VoteClassifier(ClassifierI):
         conf = choice_votes / len(votes)
         return conf
     
-short_pos = open("/Users/vidya/Desktop/Nisha/Project/Implementation/positive.txt","r").read()
-short_neg = open("/Users/vidya/Desktop/Nisha/Project/Implementation/negative.txt","r").read()
+short_pos = open("/fakepath/positive.txt","r").read()
+short_neg = open("/fakepath/negative.txt","r").read()
 
 # move this up here
 all_words = []
@@ -80,7 +80,7 @@ for p in short_neg.split('\n'):
 
 
 
-save_documents = open("/Users/vidya/Desktop/Nisha/Project/Implementation/documents.pickle","wb")
+save_documents = open("/fakepath/documents.pickle","wb")
 pickle.dump(documents, save_documents)
 save_documents.close()
 
@@ -91,7 +91,7 @@ all_words = nltk.FreqDist(all_words)
 word_features = list(all_words.keys())[:5000]
 
 
-save_word_features = open("/Users/vidya/Desktop/Nisha/Project/Implementation/word_features5k.pickle","wb")
+save_word_features = open("/fakepath/word_features5k.pickle","wb")
 pickle.dump(word_features, save_word_features)
 save_word_features.close()
 
@@ -106,7 +106,7 @@ def find_features(document):
 
 featuresets = [(find_features(rev), category) for (rev, category) in documents]
 
-featuresets_f = open("/Users/vidya/Desktop/Nisha/Project/Implementation/featuresets.pickle", "wb")
+featuresets_f = open("/fakepath/featuresets.pickle", "wb")
 pickle.dump(featuresets, featuresets_f)
 featuresets_f.close()
 
@@ -122,7 +122,7 @@ print("Original Naive Bayes Algo accuracy percent:", (nltk.classify.accuracy(cla
 classifier.show_most_informative_features(10)
 
 ###############
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/originalnaivebayes5k.pickle","wb")
+save_classifier = open("/fakeapth/originalnaivebayes5k.pickle","wb")
 pickle.dump(classifier, save_classifier)
 save_classifier.close()
 
@@ -130,7 +130,7 @@ MNB_classifier = SklearnClassifier(MultinomialNB())
 MNB_classifier.train(training_set)
 print("MNB_classifier accuracy percent:", (nltk.classify.accuracy(MNB_classifier, testing_set))*100)
 
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/MNB_classifier5k.pickle","wb")
+save_classifier = open("/fakepath/MNB_classifier5k.pickle","wb")
 pickle.dump(MNB_classifier, save_classifier)
 save_classifier.close()
 
@@ -138,7 +138,7 @@ BernoulliNB_classifier = SklearnClassifier(BernoulliNB())
 BernoulliNB_classifier.train(training_set)
 print("BernoulliNB_classifier accuracy percent:", (nltk.classify.accuracy(BernoulliNB_classifier, testing_set))*100)
 
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/BernoulliNB_classifier5k.pickle","wb")
+save_classifier = open("/fakepath/BernoulliNB_classifier5k.pickle","wb")
 pickle.dump(BernoulliNB_classifier, save_classifier)
 save_classifier.close()
 
@@ -146,7 +146,7 @@ LogisticRegression_classifier = SklearnClassifier(LogisticRegression())
 LogisticRegression_classifier.train(training_set)
 print("LogisticRegression_classifier accuracy percent:", (nltk.classify.accuracy(LogisticRegression_classifier, testing_set))*100)
 
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/LogisticRegression_classifier5k.pickle","wb")
+save_classifier = open("/fakepath/LogisticRegression_classifier5k.pickle","wb")
 pickle.dump(LogisticRegression_classifier, save_classifier)
 save_classifier.close()
 
@@ -155,7 +155,7 @@ LinearSVC_classifier = SklearnClassifier(LinearSVC())
 LinearSVC_classifier.train(training_set)
 print("LinearSVC_classifier accuracy percent:", (nltk.classify.accuracy(LinearSVC_classifier, testing_set))*100)
 
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/LinearSVC_classifier5k.pickle","wb")
+save_classifier = open("/fakepath/LinearSVC_classifier5k.pickle","wb")
 pickle.dump(LinearSVC_classifier, save_classifier)
 save_classifier.close()
 
@@ -169,6 +169,6 @@ SGDC_classifier = SklearnClassifier(SGDClassifier())
 SGDC_classifier.train(training_set)
 print("SGDClassifier accuracy percent:",nltk.classify.accuracy(SGDC_classifier, testing_set)*100)
 
-save_classifier = open("/Users/vidya/Desktop/Nisha/Project/Implementation/SGDC_classifier5k.pickle","wb")
+save_classifier = open("/fakepath/SGDC_classifier5k.pickle","wb")
 pickle.dump(SGDC_classifier, save_classifier)
 save_classifier.close()
