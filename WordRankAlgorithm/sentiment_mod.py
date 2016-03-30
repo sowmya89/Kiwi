@@ -36,14 +36,14 @@ class VoteClassifier(ClassifierI):
         return conf
 
 
-documents_f = open("/Users/vidya/Desktop/Nisha/Project/Implementation/documents.pickle", "rb")
+documents_f = open("/fakepath/documents.pickle", "rb")
 documents = pickle.load(documents_f)
 documents_f.close()
 
 
 
 
-word_features5k_f = open("/Users/vidya/Desktop/Nisha/Project/Implementation/word_features5k.pickle", "rb")
+word_features5k_f = open("/fakepath/word_features5k.pickle", "rb")
 word_features = pickle.load(word_features5k_f)
 word_features5k_f.close()
 
@@ -58,7 +58,7 @@ def find_features(document):
 
 
 
-featuresets_f = open("/Users/vidya/Desktop/Nisha/Project/Implementation/featuresets.pickle", "rb")
+featuresets_f = open("/fakepath/featuresets.pickle", "rb")
 featuresets = pickle.load(featuresets_f)
 featuresets_f.close()
 
@@ -70,33 +70,33 @@ training_set = featuresets[:10000]
 
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/originalnaivebayes5k.pickle", "rb")
+open_file = open("/fakepath/originalnaivebayes5k.pickle", "rb")
 classifier = pickle.load(open_file)
 open_file.close()
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/MNB_classifier5k.pickle", "rb")
+open_file = open("/fakepath/MNB_classifier5k.pickle", "rb")
 MNB_classifier = pickle.load(open_file)
 open_file.close()
 
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/BernoulliNB_classifier5k.pickle", "rb")
+open_file = open("/fakepath/BernoulliNB_classifier5k.pickle", "rb")
 BernoulliNB_classifier = pickle.load(open_file)
 open_file.close()
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/LogisticRegression_classifier5k.pickle", "rb")
+open_file = open("/fakepath/LogisticRegression_classifier5k.pickle", "rb")
 LogisticRegression_classifier = pickle.load(open_file)
 open_file.close()
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/LinearSVC_classifier5k.pickle", "rb")
+open_file = open("/fakepath/LinearSVC_classifier5k.pickle", "rb")
 LinearSVC_classifier = pickle.load(open_file)
 open_file.close()
 
 
-open_file = open("/Users/vidya/Desktop/Nisha/Project/Implementation/SGDC_classifier5k.pickle", "rb")
+open_file = open("/fakepath/SGDC_classifier5k.pickle", "rb")
 SGDC_classifier = pickle.load(open_file)
 open_file.close()
 
