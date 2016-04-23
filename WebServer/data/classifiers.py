@@ -2,7 +2,7 @@ import cPickle as pickle
 import os
 import nltk
 
-POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi', 'WordRankAlgorithm')
+POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi/Webserver', 'data')
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
 

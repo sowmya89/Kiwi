@@ -37,7 +37,7 @@ PUNCTUATION = set(string.punctuation)
 STOPWORDS = set(stopwords.words('english'))
 STEMMER = SnowballStemmer("english")
 allowed_word_types = ["J","N","V","P","R"]
-POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi', 'WordRankAlgorithm')
+POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi/WordRankAlgorithm', 'data')
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
 
@@ -165,7 +165,7 @@ def get_classifier():
 	return pos_words, neg_words
 
 
-def get_sentiment():
+def get_sentiment(line):
 	global TRAIN
 
 	if TRAIN:
@@ -187,13 +187,12 @@ def get_sentiment():
 		bigram_words = pickle.load(open("bigram_words.p", "rb"))
 		best_words = pickle.load(open("best_words.p", "rb"))
 
-	f = open('file_test.txt', 'r')
-	for line in f:
-		print line
-		result, conf = evaluate_features(line, best_words, posWords, negWords)
-		TRAIN = False
+	print line
+	result, conf = evaluate_features(line, best_words, posWords, negWords)
+	TRAIN = False
 
-get_sentiment()
+message="This is bullshit"
+get_sentiment(message)
 end_time = calendar.timegm(time.gmtime())
 time_taken = end_time - start_time
 print "Start time: {0}, end time: {1}, Time taken: {2}".format(start_time,end_time,time_taken)
