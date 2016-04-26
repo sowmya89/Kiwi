@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import render
 #from webserver.models import Post
 from django.utils import timezone
@@ -5,6 +6,9 @@ from django.http import HttpResponse
 from pymongo import MongoClient
 from django import forms
 from django.views.decorators.csrf import csrf_protect
+
+foo = imp.load_source('module.name', '../data/kiwi.py')
+
 # Create your views here.
 CSRF_COOKIE_SECURE = False
 def index(request):
@@ -23,4 +27,5 @@ def send_message(request):
     if request.method == 'POST':
         message = request.POST.get("message")
         print "message: ",message
-        return HttpResponse(message)
+        bar = foo.get_sentiment(message)
+        return HttpResponse(bar)

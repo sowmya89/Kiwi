@@ -1,3 +1,4 @@
+
 import os
 import sys
 import re
@@ -48,7 +49,7 @@ stop_words = set(stopwords.words('english'))
 sc = SparkContext('local', 'pyspark')
 
 # this function takes a feature selection mechanism and returns its performance in a variety of metrics
-def evaluate_features(sentence, best_words, posWords, negWords):
+def evaluate_features(sentence, best_words=[], posWords=[], negWords=[]):
 
 	classifier_list = {}
 	votes = []
@@ -190,9 +191,8 @@ def get_sentiment(line):
 	print line
 	result, conf = evaluate_features(line, best_words, posWords, negWords)
 	TRAIN = False
-
-message="This is bullshit"
-get_sentiment(message)
+message = "this is bullshit"
+evaluate_features(message)
 end_time = calendar.timegm(time.gmtime())
 time_taken = end_time - start_time
 print "Start time: {0}, end time: {1}, Time taken: {2}".format(start_time,end_time,time_taken)
