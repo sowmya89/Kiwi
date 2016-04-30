@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from django import forms
 from django.views.decorators.csrf import csrf_protect
 
-foo = imp.load_source('module.name', '../data/kiwi.py')
+from kiwi import get_sentiment
 
 # Create your views here.
 CSRF_COOKIE_SECURE = False
@@ -27,5 +27,5 @@ def send_message(request):
     if request.method == 'POST':
         message = request.POST.get("message")
         print "message: ",message
-        bar = foo.get_sentiment(message)
+        bar = get_sentiment(message)
         return HttpResponse(bar)
