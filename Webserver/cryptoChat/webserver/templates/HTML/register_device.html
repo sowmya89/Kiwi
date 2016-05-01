@@ -6,10 +6,9 @@
 
     </head>
     <body>
-        <form action="/send_message" method="post">{% csrf_token %}
+        <form action="/process_registeration" method="post">{% csrf_token %}
 
-          Message: <input type="text" name="message" id="message">
-          deviceId: <input type="text" name="deviceId" id="deviceId">
+          Device id: <input type="text" name="deviceId" id="deviceId">
           <input type="submit">
         </form>
     </body>
