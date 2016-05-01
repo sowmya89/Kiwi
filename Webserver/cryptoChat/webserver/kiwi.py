@@ -42,7 +42,7 @@ POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi/W
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
 
-TRAIN = True
+TRAIN = False
 TEST = False
 
 stop_words = set(stopwords.words('english'))
@@ -165,10 +165,8 @@ def get_classifier():
 	neg_words = neg_file.map(lambda text: tokenize(text))
 	return pos_words, neg_words
 
-
 def get_sentiment(line):
 	global TRAIN
-
 	if TRAIN:
 		print "Entering Training Mode"
 		posWords,negWords = get_classifier()
@@ -191,8 +189,7 @@ def get_sentiment(line):
 	print line
 	result, conf = evaluate_features(line, best_words, posWords, negWords)
 	TRAIN = False
-message = "this is bullshit"
-evaluate_features(message)
+
 end_time = calendar.timegm(time.gmtime())
 time_taken = end_time - start_time
 print "Start time: {0}, end time: {1}, Time taken: {2}".format(start_time,end_time,time_taken)
