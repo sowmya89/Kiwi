@@ -38,7 +38,7 @@ PUNCTUATION = set(string.punctuation)
 STOPWORDS = set(stopwords.words('english'))
 STEMMER = SnowballStemmer("english")
 allowed_word_types = ["J","N","V","P","R"]
-POLARITY_DATA_DIR = os.path.join('/Users/anil/', 'Kiwi')
+POLARITY_DATA_DIR = os.path.join('/Users/vidya/', 'Kiwi')
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
 
