@@ -1,3 +1,4 @@
+
 import os
 import sys
 import re
@@ -37,9 +38,14 @@ PUNCTUATION = set(string.punctuation)
 STOPWORDS = set(stopwords.words('english'))
 STEMMER = SnowballStemmer("english")
 allowed_word_types = ["J","N","V","P","R"]
-POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi', 'WordRankAlgorithm')
+POLARITY_DATA_DIR = os.path.join('/Users/anil/', 'Kiwi')
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
+
+bad_words = []
+with open('swearwords.txt','r') as bad:
+	for line in bad:
+		bad_words.append(line.strip())
 
 TRAIN = False
 TEST = False
@@ -48,7 +54,7 @@ stop_words = set(stopwords.words('english'))
 sc = SparkContext('local', 'pyspark')
 
 # this function takes a feature selection mechanism and returns its performance in a variety of metrics
-def evaluate_features(sentence, best_words, posWords, negWords):
+def evaluate_features(sentence, best_words=[], posWords=[], negWords=[]):
 
 	classifier_list = {}
 	votes = []
@@ -123,7 +129,7 @@ def evaluate_features(sentence, best_words, posWords, negWords):
 	for classifier, obj in classifier_list.iteritems():
 		try:
 			result = obj.classify(test_sentence)
-			print result
+			#print result
 			votes.append(result)
 		except:
 			pass
@@ -133,9 +139,18 @@ def evaluate_features(sentence, best_words, posWords, negWords):
 	total_sentiment = votes.count(word_sentiment)
 	confidence_of_sentiment = total_sentiment / len(votes)
 
-	print "Word Sentiment = " + word_sentiment + " With Confidence = " + str(confidence_of_sentiment)
+	#print "Word Sentiment = " + word_sentiment + " With Confidence = " + str(confidence_of_sentiment)
 	return word_sentiment, confidence_of_sentiment
 
+
+def evaluate_small_features(line):
+	words = line.split()
+	words = [word for word in words if word not in stop_words]
+	for word in words:
+		if word in bad_words:
+			return "neg", 1
+	else:
+		return "pos", 1
 
 
 # Function to break text into "tokens", lowercase them, remove punctuation and stopwords, and stem them
@@ -165,7 +180,7 @@ def get_classifier():
 	return pos_words, neg_words
 
 
-def get_sentiment():
+def get_sentiment(line):
 	global TRAIN
 
 	if TRAIN:
@@ -187,13 +202,18 @@ def get_sentiment():
 		bigram_words = pickle.load(open("bigram_words.p", "rb"))
 		best_words = pickle.load(open("best_words.p", "rb"))
 
-	f = open('file_test.txt', 'r')
-	for line in f:
-		print line
+	if len(line.split()) <= 3:
+			result, conf = evaluate_small_features(line)
+			return result, conf
+	else:
 		result, conf = evaluate_features(line, best_words, posWords, negWords)
 		TRAIN = False
+		return result, conf
 
-get_sentiment()
-end_time = calendar.timegm(time.gmtime())
-time_taken = end_time - start_time
-print "Start time: {0}, end time: {1}, Time taken: {2}".format(start_time,end_time,time_taken)
+f = open('file_test.txt', 'r')
+for line in f:
+	print line
+	result, conf = get_sentiment(line)
+	print "Word Sentiment = " + result + " With Confidence = " + str(conf)
+	print "\n"
+f.close()
