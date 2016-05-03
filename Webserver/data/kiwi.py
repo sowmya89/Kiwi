@@ -38,14 +38,9 @@ PUNCTUATION = set(string.punctuation)
 STOPWORDS = set(stopwords.words('english'))
 STEMMER = SnowballStemmer("english")
 allowed_word_types = ["J","N","V","P","R"]
-POLARITY_DATA_DIR = os.path.join('/Users/vidya/', 'Kiwi')
+POLARITY_DATA_DIR = os.path.join('/home/nishanth/workspace/Sem4_finalProj/Kiwi/WordRankAlgorithm', 'data')
 RT_POLARITY_POS_FILE = os.path.join(POLARITY_DATA_DIR, 'pos_training.txt')
 RT_POLARITY_NEG_FILE = os.path.join(POLARITY_DATA_DIR, 'neg_training.txt')
-
-bad_words = []
-with open('swearwords.txt','r') as bad:
-	for line in bad:
-		bad_words.append(line.strip())
 
 TRAIN = False
 TEST = False
@@ -129,7 +124,7 @@ def evaluate_features(sentence, best_words=[], posWords=[], negWords=[]):
 	for classifier, obj in classifier_list.iteritems():
 		try:
 			result = obj.classify(test_sentence)
-			#print result
+			print result
 			votes.append(result)
 		except:
 			pass
@@ -139,18 +134,9 @@ def evaluate_features(sentence, best_words=[], posWords=[], negWords=[]):
 	total_sentiment = votes.count(word_sentiment)
 	confidence_of_sentiment = total_sentiment / len(votes)
 
-	#print "Word Sentiment = " + word_sentiment + " With Confidence = " + str(confidence_of_sentiment)
+	print "Word Sentiment = " + word_sentiment + " With Confidence = " + str(confidence_of_sentiment)
 	return word_sentiment, confidence_of_sentiment
 
-
-def evaluate_small_features(line):
-	words = line.split()
-	words = [word for word in words if word not in stop_words]
-	for word in words:
-		if word in bad_words:
-			return "neg", 1
-	else:
-		return "pos", 1
 
 
 # Function to break text into "tokens", lowercase them, remove punctuation and stopwords, and stem them
@@ -202,18 +188,11 @@ def get_sentiment(line):
 		bigram_words = pickle.load(open("bigram_words.p", "rb"))
 		best_words = pickle.load(open("best_words.p", "rb"))
 
-	if len(line.split()) <= 3:
-			result, conf = evaluate_small_features(line)
-			return result, conf
-	else:
-		result, conf = evaluate_features(line, best_words, posWords, negWords)
-		TRAIN = False
-		return result, conf
-
-f = open('file_test.txt', 'r')
-for line in f:
 	print line
-	result, conf = get_sentiment(line)
-	print "Word Sentiment = " + result + " With Confidence = " + str(conf)
-	print "\n"
-f.close()
+	result, conf = evaluate_features(line, best_words, posWords, negWords)
+	TRAIN = False
+message = "this is bullshit"
+evaluate_features(message)
+end_time = calendar.timegm(time.gmtime())
+time_taken = end_time - start_time
+print "Start time: {0}, end time: {1}, Time taken: {2}".format(start_time,end_time,time_taken)

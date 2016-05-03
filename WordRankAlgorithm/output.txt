@@ -1,0 +1,49 @@
+This is crap
+
+neg
+neg
+neg
+neg
+neg
+Word Sentiment = neg With Confidence = 1
+Do not be a fool
+
+neg
+neg
+neg
+neg
+neg
+Word Sentiment = neg With Confidence = 1
+Cheese makes me happy
+
+pos
+pos
+pos
+pos
+pos
+Word Sentiment = pos With Confidence = 1
+I am fantastic
+
+pos
+pos
+pos
+pos
+pos
+Word Sentiment = pos With Confidence = 1
+I love apples
+
+pos
+pos
+pos
+pos
+pos
+Word Sentiment = pos With Confidence = 1
+I do not like You
+
+neg
+neg
+neg
+neg
+neg
+Word Sentiment = neg With Confidence = 1
+Starte time: 1460488289, end time: 1460488300, Time taken: 11
