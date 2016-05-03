@@ -8,7 +8,7 @@ function getConnection() {
         database : 'cmpe295b_webapp',
         port: 3306
     });
-    return connection;
+    return connection;  
 }
 
 function fetchData(callback, sqlQuery) {

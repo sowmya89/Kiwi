@@ -67,6 +67,11 @@ function homepage(req,res) {
 
                 });
 
+                console.log("***hi****");
+                console.log(count_data);
+                console.log(sent_pos);
+                console.log(sent_neg);
+
             }
 
         }
@@ -80,7 +85,7 @@ function homepage(req,res) {
 function cyberbullyingFacts(req,res) {
 
     var query = "select * from cmpe295b_webapp.sent_sentiment where " +
-        "sent_classification = 'neg'  order by sent_negative LIMIT 15; ";
+        "sent_classification = 'neg'  order by sent_negative desc LIMIT 15; ";
 
     //"select * from sent_sentiment ;" ;
 
@@ -106,7 +111,100 @@ function cyberbullyingFacts(req,res) {
 }
 
 
-exports.cyberbullyingFacts=cyberbullyingFacts;
 
+function c2(req,res) {
+
+
+    //var year=null;
+    //year=req.param("year");
+
+    //console.log("Year:-"+year);
+    var query = "select count(*) as c1 from cmpe295b_webapp.sent_sentiment where sent_classification = 'pos'  order by sent_positive LIMIT 10;";
+    console.log("Query is:" + query);
+
+
+    mysql.fetchData(function(err, results) {
+        if (err) {
+            throw err;
+        } else {
+            if (results.length > 0) {
+                for ( var i = 0; i < results.length; i++) {
+                    //console.log("Sent_positive:"+results[i].sent_positive);
+                }
+                var getUser1 = "select sent_negative from cmpe295b_webapp.sent_sentiment where sent_classification = 'neg'  order by sent_negative LIMIT 10;";
+                console.log(getUser1);
+                mysql.fetchData(function(err, result) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        if (result.length > 0) {
+                            for ( var j = 0; j < result.length; j++) {
+                                //console.log("Negative sent:- "+result[j].sent_negative);
+                            } ;
+                            sent_neg=result;
+                        }
+                    }
+                }, getUser1);
+
+                var getUser2 = "select count(*) as c from cmpe295b_webapp.sent_sentiment ;";
+                console.log(getUser2);
+                mysql.fetchData(function(err, result) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        if (result.length > 0) {
+                            //console.log("Count:- "+result);
+
+                            count_data=result;
+                            //console.log(count_data);
+                        }
+                    }
+                }, getUser2);
+
+                sent_pos = results;
+
+                //console.log(state);
+                res.render('c2', {
+                    sent_pos : sent_pos,
+                    sent_neg: sent_neg,
+                    count_data:count_data
+
+                });
+
+                console.log("***hi ....c2****");
+                console.log(count_data);
+                console.log(sent_pos);
+                console.log(sent_neg);
+
+            }
+
+        }
+    }, query);
+
+}
+
+function wordcloud(req,res) {
+    ejs.renderFile('./views/wordcloud.ejs',function(err, result)
+    {
+        // render on success
+        if (!err)
+        {
+            res.end(result);
+        }
+        // render or error
+        else
+        {
+            res.end('An error occurred');
+            console.log(err);
+        }
+    });
+
+}
+
+
+
+exports.cyberbullyingFacts=cyberbullyingFacts;
 exports.homepage=homepage;
+exports.wordcloud=wordcloud;
+exports.c2=c2;
 

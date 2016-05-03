@@ -35,6 +35,8 @@ app.get('/', home.homepage);
 app.get('/users', user.list);
 
 app.get('/cyberbullyingFacts',home.cyberbullyingFacts);
+app.get('/c2',home.c2);
+app.get('/wordcloud',home.wordcloud);
 
 
 
