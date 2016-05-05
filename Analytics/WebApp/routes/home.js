@@ -7,6 +7,8 @@ var sent_pos=null;
 var sent_neg=null;
 var count_data=null;
 var analysis_data = null;
+var cyberbullyingData_yearly = null;
+var cyberbullyingData_genderwise =null;
 
 function homepage(req,res) {
 
@@ -110,10 +112,7 @@ function cyberbullyingFacts(req,res) {
     }, query);
 }
 
-
-
 function c2(req,res) {
-
 
     //var year=null;
     //year=req.param("year");
@@ -201,10 +200,62 @@ function wordcloud(req,res) {
 
 }
 
+function yearlyStats(req,res) {
 
+    var query = "select * from cmpe295b_webapp.cyberbullying_yearly;";
+    console.log("Query is:" + query);
+
+
+    mysql.fetchData(function(err, results) {
+        if (err) {
+            throw err;
+        } else {
+            if (results.length > 0) {
+                for ( var i = 0; i < results.length; i++) {
+                    //console.log("Sent_positive:"+results[i].sent_positive);
+                }
+                var query2 = "SELECT * FROM cmpe295b_webapp.cyberbullying_genderwise;";
+                console.log(query2);
+                mysql.fetchData(function(err, result) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        if (result.length > 0) {
+
+                            for ( var j = 0; j < result.length; j++) {
+                                console.log("Year:- "+result[j].Year);
+                            }
+                            cyberbullyingData_genderwise=result;
+                        }
+                    }
+
+                }, query2);
+
+
+
+                //console.log(state);
+                res.render('yearlyStats', {
+                    cyberbullyingData_genderwise : cyberbullyingData_genderwise,
+                    cyberbullyingData_yearly: cyberbullyingData_yearly,
+
+                });
+                cyberbullyingData_yearly=results;
+
+                console.log("***hi ....yearlyStats****");
+                console.log(cyberbullyingData_yearly);
+                console.log(cyberbullyingData_genderwise);
+
+
+            }
+
+        }
+    }, query);
+
+}
 
 exports.cyberbullyingFacts=cyberbullyingFacts;
 exports.homepage=homepage;
 exports.wordcloud=wordcloud;
 exports.c2=c2;
+exports.yearlyStats=yearlyStats;
 

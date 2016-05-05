@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title> KiwiChat- WordCloud</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+
+        var chartdata= <%-JSON.stringify(cyberbullyingData_genderwise)%>
+        console.log("chartdata: "+chartdata);
+        var category = [];
+        for(j=0;j<chartdata.length;j++){
+            category[j]=[chartdata[j].Year]
+            console.log("chartdata[j].Year-"+chartdata[j].Year)
+            // name[j]=[chartdata[j].seriesname]
+            // data[j]=[chartdata[j].wdata,chartdata[j].hdata,chartdata[j].cdata]
+        }
+
+        var x = [];
+        for (var j =0 ; j<chartdata.length; j++)
+        {
+            x.push({
+                name: chartdata[j].Year
+            })
+        }
+
+
+        var t = [];
+        for (var j =0 ; j<chartdata.length; j++)
+        {
+            t.push({
+                name: chartdata[j].Category,
+                data: chartdata[j].Bullied
+            })
+        }
+
+        for(var j=0;j<t.length; j++)
+        {
+            console.log("t array"+ t[j].name);
+        }
+
+        </script>
+    <script type="text/javascript">
+
+        <% if(cyberbullyingData_genderwise != null) {
+            console.log("Inside ejs file********************");
+            console.log(cyberbullyingData_genderwise[0]);
+        }
+        else
+        {
+            console.log("No data found!")
+        }
+        %>
+
+
+        $(function () {
+
+            $('#containerA').highcharts({
+
+                chart: {
+                    type: 'column',
+                },
+                title: {
+                    text: 'Cyberbullying Analysis'
+                },
+                subtitle: {
+                    text: 'Source: National Center for Educational Statistics: https://ies.ed.gov/'
+                },
+                xAxis: {
+
+
+                    categories: [
+                        '2006-07',
+                        '2008-09',
+                        '2010-11',
+                        '2012-13'
+                    ],
+
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'No of Students'
+                    }
+                },
+                labels: {
+                    items: [{
+
+                        style: {
+                            left: '50px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                    {
+                        name: 'Male',
+                        data: [261860
+                            , 624701
+                            , 868503
+                            , 667888
+                        ]
+
+                    }, {
+                        name: 'Female',
+                        data: [668224
+                            , 893808
+                            , 1324288
+                            , 1044126
+                        ]
+
+                    }]
+            });
+
+
+            // Build the chart
+            $('#containerB').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie',
+
+                },
+                title: {
+                    text: 'Total students cyberbullied: 2006 to 2013'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Total students cyberbullied',
+                    colorByPoint: true,
+                    data: [{
+                        name: '2006-07',
+                        y:930084
+
+                    }, {
+                        name: '2008-09',
+                        y: 1518509
+
+                    }, {
+                        name: '2010-11',
+                        y: 2192791,
+                        sliced: true,
+                        selected: true
+
+                    }, {
+                        name: '2012-13',
+                        y: 1712014
+                    }]
+                }]
+            });
+
+
+            $('#containerC').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Cyberbullying statistics - By type of bullying'
+                },
+                xAxis: {
+                    title:{
+                    text:'Cyberbullying statistics - By type of bullying and year'
+                },
+                    categories: [' Cyber-bullied', '  Unwanted contact via text messaging', ' Hurtful information on Internet',
+                        ' Unwanted contact via instant messaging', ' Unwanted contact via e-mail']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'No. of Students'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'percent'
+                    }
+                },
+                series: [{
+                    name: '2006-07',
+                    data: [69400, 51600, 43800, 49900, 0]
+                }, {
+                    name: '2008-09',
+                    data: [1521000, 753000, 502000, 448000, 335000]
+                }, {
+                    name: '2010-11',
+                    data: [2198000, 1073000, 884000, 659000, 454000]
+                },
+                    {
+                        name: '2012-13',
+                        data: [1713000, 796000, 705000, 532000, 236000]
+                    }]
+            });
+
+        });
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+<div>
+    <%- include header.ejs %>
+</div><br><br><br>
+<div id="containerA" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="spacer" style="height: 20px"></div>
+<div id="containerB" style="min-width: 310px; height: 400px; max-width: 600px; margin: auto 55px 55px 50px"></div>
+<div class="spacer" style="height: 20px"></div>
+<div id="containerC" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="spacer" style="height: 70px"></div>
+<div>
+    <%- include footer.ejs %>
+</div>
+</body>
+
+</html>
