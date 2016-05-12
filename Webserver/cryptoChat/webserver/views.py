@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_protect
 from kiwi import get_sentiment,evaluate_features
 from gcm import *
 import urllib3
-urllib3.disable_warnings()
+#urllib3.disable_warnings()
 
 client = MongoClient('localhost', 27017)
 db = client['Kiwichat']
@@ -62,7 +62,7 @@ def send_message(request):
         if(threshold_value <= threshold_limit):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
                 data = {'the_message': message}
-                reg_id = 'APA91bFxz8_U87jN2fO1zRo-rXX2AjO8NBNqoLKunSyNYI2mZhdMkoXS9JWekDlrQk5cvi6T00QaFuhRHig8QFbhV49Kwk5GXu-MEtCFaj2ECq60D8hksJOc83pp99GwHdW3CGD$
+                reg_id = 'APA91bFxz8_U87jN2fO1zRo-rXX2AjO8NBNqoLKunSyNYI2mZhdMkoXS9JWekDlrQk5cvi6T00QaFuhRHig8QFbhV49Kwk5GXu-MEtCFaj2ECq60D8hksJOc83pp99GwHdW3CGD$'
                 gcm.plaintext_request(registration_id=reg_id, data=data)
                 print "forward"
 
