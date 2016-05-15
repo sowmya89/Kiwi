@@ -7,7 +7,8 @@ from pymongo import MongoClient
 from django import forms
 from django.views.decorators.csrf import csrf_protect
 
-from kiwi import get_sentiment,evaluate_features
+from kiwi import get_sentiment,evaluate_features,evaluate_small_features
+from twilio.rest import TwilioRestClient
 from gcm import *
 import urllib3
 #urllib3.disable_warnings()
@@ -31,27 +32,52 @@ def process_message(request):
         print(document['polarity'])
     return HttpResponse(document['polarity'])
 
+def process_emergency_message(number,name,receiver):
+    # Find these values at https://twilio.com/user/account
+    account_sid = "AC2a781fd7b2047a8d02bf4800fef9a244"
+    auth_token = "c6518ef76c1301cc694db02e74ce6430"
+    client = TwilioRestClient(account_sid, auth_token)
+
+    message = client.messages.create(to=number, from_="+15555555555",
+                                         body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
+
 @csrf_protect
 def send_message(request):
     global send
     if request.method == 'POST':
         message = request.POST.get("message")
-        deviceId = request.POST.get("deviceId")
+        senderPhoneNumber = request.POST.get("senderPhoneNumber")
+        senderName = request.POST.get("senderName")
+        receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
+
+        cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
+        threshold_value = cursor['threshold_value']
+
+        cursor = db.threshold.find_one({'phoneNumber':receiverPhoneNumber })
+        deviceId = cursor['deviceId']
+
         print "message: ",message
-        bar =evaluate_features(message)
+
+        if len(message.split()) <= 3:
+			bar = evaluate_small_features(message)
+        else:
+    		bar = evaluate_features(message)
+
         result = db.chats.insert_one(
         {
             "message":message,
-            "polarity":bar
+            "polarity":bar,
+            "senderPhoneNumber":senderPhoneNumber,
+            "senderName":senderName,
+            "receiverPhoneNumber":receiverPhoneNumber
         }
         )
-        cursor = db.threshold.find_one({'deviceId':deviceId })
-        threshold_value = cursor['threshold_value']
+
         print "bar",bar
         if(bar[0] == 'neg'):
             threshold_value = threshold_value + 1
             result = db.threshold.update_one(
-            {"deviceId": deviceId},
+            {"phoneNumber": senderPhoneNumber},
             {
                 "$set": {
                     "threshold_value": threshold_value
@@ -59,13 +85,30 @@ def send_message(request):
             }
             )
         print "Threshold: ",threshold_value
-        if(threshold_value <= threshold_limit):
+        '''if(threshold_value <= threshold_limit):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
-                data = {'the_message': message}
-                reg_id = 'APA91bFxz8_U87jN2fO1zRo-rXX2AjO8NBNqoLKunSyNYI2mZhdMkoXS9JWekDlrQk5cvi6T00QaFuhRHig8QFbhV49Kwk5GXu-MEtCFaj2ECq60D8hksJOc83pp99GwHdW3CGD$'
+                data = {'message': message,'polarity':bar}
+                reg_id = deviceId
                 gcm.plaintext_request(registration_id=reg_id, data=data)
                 print "forward"
-
+                return HttpResponse("Successfully sent")
+            else:
+                result = db.threshold.update_one(
+                {"phoneNumber": senderPhoneNumber},
+                {
+                    "$set": {
+                        "blocked": True
+                    },
+                }
+                )
+                cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
+                contactOnePhone = cursor['contactOnePhone']
+                contactOneName = cursor['contactOneName']
+                contactTwoPhone = cursor['contactTwoPhone']
+                contactTwoName = cursor['contactOTwoName']
+                send_emergency_message(senderName,contactOnePhone,contactOneName)
+                send_emergency_message(senderName,contactTwoPhone,contactTwoName)
+        '''
         return HttpResponse(bar)
 
 @csrf_protect
@@ -80,3 +123,37 @@ def process_registeration(request):
         }
         )
         return HttpResponse("Success")
+
+
+@csrf_protect
+def login(request):
+    if request.method == 'POST':
+        deviceId = request.POST.get("reg_id")
+        firstName = request.POST.get("firstName")
+        lastName = request.POST.get("lastName")
+        phoneNumber = request.POST.get("phoneNumber")
+        emailId = request.POST.get("emailId")
+        age = request.POST.get("age")
+        contactOneName = request.POST.get("contactOneName")
+        contactOnePhone = request.POST.get("contactOnePhone")
+        contactTwoName = request.POST.get("contactTwoName")
+        contactTwoPhone = request.POST.get("contactTwoPhone")
+
+        print "deviceId: ",deviceId
+        result = db.threshold.insert_one(
+        {
+            "deviceId":deviceId,
+            "threshold_value":0,
+            "firstName":firstName,
+            "lastName":lastName,
+            "phoneNumber":phoneNumber,
+            "emailId":emailId,
+            "age":age,
+            "contactOneName":contactOneName,
+            "contactOnePhone":contactOnePhone,
+            "contactTwoName":contactTwoName,
+            "contactTwoPhone":contactTwoPhone,
+            "blocked":False
+        }
+        )
+        return HttpResponse("Successfully registered")
