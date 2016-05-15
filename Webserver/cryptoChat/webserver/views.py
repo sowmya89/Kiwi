@@ -52,6 +52,7 @@ def send_message(request):
 
         cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
         threshold_value = cursor['threshold_value']
+        blocked = cursor['blocked']
 
         cursor = db.threshold.find_one({'phoneNumber':receiverPhoneNumber })
         deviceId = cursor['deviceId']
@@ -85,7 +86,7 @@ def send_message(request):
             }
             )
         print "Threshold: ",threshold_value
-        '''if(threshold_value <= threshold_limit):
+        '''if(threshold_value <= threshold_limit and not blocked):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
                 data = {'message': message,'polarity':bar}
                 reg_id = deviceId

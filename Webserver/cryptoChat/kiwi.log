@@ -29535,7 +29535,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -29560,7 +29564,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -29585,7 +29593,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -29610,7 +29622,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -29623,6 +29639,7 @@ o9
 _1
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ysspark.submit.deployMode
 DEBUG:py4j.java_gateway:Command to send: c
 o9
@@ -31468,11 +31485,21 @@ _2
 e
 
 DEBUG:py4j.java_gateway:Answer received: ys100
+=======
+DEBUG:py4j.java_gateway:Answer received: ysspark.files
+DEBUG:py4j.java_gateway:Command to send: c
+o9
+_2
+e
+
+DEBUG:py4j.java_gateway:Answer received: ysfile:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
 DEBUG:py4j.java_gateway:Command to send: a
 g
@@ -31483,12 +31510,28 @@ e
 DEBUG:py4j.java_gateway:Answer received: yro9
 DEBUG:py4j.java_gateway:Command to send: c
 o9
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+DEBUG:py4j.java_gateway:Command to send: a
+g
+o5
+i4
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro10
+DEBUG:py4j.java_gateway:Command to send: c
+o10
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 _1
 e
 
 DEBUG:py4j.java_gateway:Answer received: ysspark.submit.deployMode
 DEBUG:py4j.java_gateway:Command to send: c
+<<<<<<< HEAD
 o9
+=======
+o10
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 _2
 e
 
@@ -31498,6 +31541,7 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
 DEBUG:py4j.java_gateway:Command to send: a
 g
@@ -31508,12 +31552,28 @@ e
 DEBUG:py4j.java_gateway:Answer received: yro10
 DEBUG:py4j.java_gateway:Command to send: c
 o10
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+DEBUG:py4j.java_gateway:Command to send: a
+g
+o5
+i5
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro11
+DEBUG:py4j.java_gateway:Command to send: c
+o11
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 _1
 e
 
 DEBUG:py4j.java_gateway:Answer received: ysspark.app.name
 DEBUG:py4j.java_gateway:Command to send: c
+<<<<<<< HEAD
 o10
+=======
+o11
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 _2
 e
 
@@ -31523,7 +31583,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: m
 d
 o5
@@ -31542,7 +31606,11 @@ org.apache.spark.api.java.JavaSparkContext
 ro0
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yro11
+=======
+DEBUG:py4j.java_gateway:Answer received: yro12
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 java
@@ -31568,7 +31636,11 @@ DEBUG:py4j.java_gateway:Command to send: i
 java.util.ArrayList
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ylo12
+=======
+DEBUG:py4j.java_gateway:Answer received: ylo13
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 PythonAccumulatorParam
@@ -31579,6 +31651,7 @@ DEBUG:py4j.java_gateway:Answer received: ycorg.apache.spark.api.python.PythonAcc
 DEBUG:py4j.java_gateway:Command to send: i
 org.apache.spark.api.python.PythonAccumulatorParam
 s127.0.0.1
+<<<<<<< HEAD
 i40054
 e
 
@@ -31591,6 +31664,20 @@ ro13
 e
 
 DEBUG:py4j.java_gateway:Answer received: yro14
+=======
+i46110
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro14
+DEBUG:py4j.java_gateway:Command to send: c
+o12
+accumulator
+ro13
+ro14
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro15
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 org
@@ -31631,7 +31718,11 @@ z:org.apache.spark.SparkFiles
 getRootDirectory
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-27792158-ea2a-4a5f-860f-a7da24946625/userFiles-94e7fadd-9d6c-482f-a142-f7a10130afa3
+=======
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-ae3a9f93-d2ea-45fb-9ece-a1730850d5ad/userFiles-5a1b6599-b4b6-45dc-9664-ac2a298f3971
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o0
 get
@@ -31683,6 +31774,7 @@ e
 
 DEBUG:py4j.java_gateway:Answer received: ym
 DEBUG:py4j.java_gateway:Command to send: c
+<<<<<<< HEAD
 o11
 sc
 e
@@ -31701,6 +31793,26 @@ ro16
 e
 
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-27792158-ea2a-4a5f-860f-a7da24946625
+=======
+o12
+sc
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro16
+DEBUG:py4j.java_gateway:Command to send: c
+o16
+conf
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro17
+DEBUG:py4j.java_gateway:Command to send: c
+z:org.apache.spark.util.Utils
+getLocalDir
+ro17
+e
+
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-ae3a9f93-d2ea-45fb-9ece-a1730850d5ad
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 org
@@ -31746,6 +31858,7 @@ DEBUG:py4j.java_gateway:Answer received: ym
 DEBUG:py4j.java_gateway:Command to send: c
 z:org.apache.spark.util.Utils
 createTempDir
+<<<<<<< HEAD
 s/tmp/spark-27792158-ea2a-4a5f-860f-a7da24946625
 spyspark
 e
@@ -31757,6 +31870,19 @@ getAbsolutePath
 e
 
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-27792158-ea2a-4a5f-860f-a7da24946625/pyspark-3f695869-dc5e-466b-ac77-dc79a7fac7a2
+=======
+s/tmp/spark-ae3a9f93-d2ea-45fb-9ece-a1730850d5ad
+spyspark
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro18
+DEBUG:py4j.java_gateway:Command to send: c
+o18
+getAbsolutePath
+e
+
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-ae3a9f93-d2ea-45fb-9ece-a1730850d5ad/pyspark-2c52c1c9-2896-41bb-8a9e-623342d69265
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o0
 get
@@ -31797,7 +31923,11 @@ e
 DEBUG:py4j.java_gateway:Answer received: yv
 DEBUG:py4j.java_gateway:Command to send: m
 d
+<<<<<<< HEAD
 o12
+=======
+o11
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
@@ -31809,7 +31939,11 @@ e
 DEBUG:py4j.java_gateway:Answer received: yv
 DEBUG:py4j.java_gateway:Command to send: m
 d
+<<<<<<< HEAD
 o15
+=======
+o14
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
@@ -31825,6 +31959,25 @@ o17
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
+<<<<<<< HEAD
+=======
+DEBUG:py4j.java_gateway:Command to send: m
+d
+o18
+e
+
+DEBUG:py4j.java_gateway:Answer received: yv
+WARNING:django.request:Not Found: /lo
+WARNING:django.request:Not Found: /log
+WARNING:django.request:Not Found: /logi
+ERROR:django.request:Internal Server Error: /login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view webserver.views.login didn't return an HttpResponse object. It returned None instead.
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:JavaGateway.auto_convert is deprecated and will be removed in version 1.0. Use GatewayParameters instead.
 DEBUG:py4j.java_gateway:JavaGateway.gateway_client is deprecated and will be removed in version 1.0. Use GatewayParameters instead.
 DEBUG:py4j.java_gateway:Command to send: j
@@ -32017,7 +32170,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -32042,7 +32199,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -32067,7 +32228,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -32092,7 +32257,11 @@ e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -32105,19 +32274,31 @@ o9
 _1
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ysspark.submit.deployMode
+=======
+DEBUG:py4j.java_gateway:Answer received: ysspark.files
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o9
 _2
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ysclient
+=======
+DEBUG:py4j.java_gateway:Answer received: ysfile:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: a
 g
 o5
@@ -32130,19 +32311,55 @@ o10
 _1
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ysspark.app.name
+=======
+DEBUG:py4j.java_gateway:Answer received: ysspark.submit.deployMode
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o10
 _2
 e
 
+<<<<<<< HEAD
+=======
+DEBUG:py4j.java_gateway:Answer received: ysclient
+DEBUG:py4j.java_gateway:Command to send: a
+e
+o5
+e
+
+DEBUG:py4j.java_gateway:Answer received: yi6
+DEBUG:py4j.java_gateway:Command to send: a
+g
+o5
+i5
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro11
+DEBUG:py4j.java_gateway:Command to send: c
+o11
+_1
+e
+
+DEBUG:py4j.java_gateway:Answer received: ysspark.app.name
+DEBUG:py4j.java_gateway:Command to send: c
+o11
+_2
+e
+
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Answer received: yspyspark
 DEBUG:py4j.java_gateway:Command to send: a
 e
 o5
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yi5
+=======
+DEBUG:py4j.java_gateway:Answer received: yi6
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: m
 d
 o5
@@ -32161,7 +32378,11 @@ org.apache.spark.api.java.JavaSparkContext
 ro0
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: yro11
+=======
+DEBUG:py4j.java_gateway:Answer received: yro12
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 java
@@ -32187,7 +32408,11 @@ DEBUG:py4j.java_gateway:Command to send: i
 java.util.ArrayList
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ylo12
+=======
+DEBUG:py4j.java_gateway:Answer received: ylo13
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 PythonAccumulatorParam
@@ -32198,6 +32423,7 @@ DEBUG:py4j.java_gateway:Answer received: ycorg.apache.spark.api.python.PythonAcc
 DEBUG:py4j.java_gateway:Command to send: i
 org.apache.spark.api.python.PythonAccumulatorParam
 s127.0.0.1
+<<<<<<< HEAD
 i37050
 e
 
@@ -32210,6 +32436,20 @@ ro13
 e
 
 DEBUG:py4j.java_gateway:Answer received: yro14
+=======
+i53290
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro14
+DEBUG:py4j.java_gateway:Command to send: c
+o12
+accumulator
+ro13
+ro14
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro15
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 org
@@ -32250,7 +32490,11 @@ z:org.apache.spark.SparkFiles
 getRootDirectory
 e
 
+<<<<<<< HEAD
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-78ed8966-f376-4708-936e-73ff8283eedd/userFiles-4badbab2-7ff8-4f6a-8769-22179db46f38
+=======
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-02040ad7-2c51-4dff-875a-a907bfe23be5/userFiles-3f0d8ecb-e764-4ebe-b299-bf921c48a3e0
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o0
 get
@@ -32302,6 +32546,7 @@ e
 
 DEBUG:py4j.java_gateway:Answer received: ym
 DEBUG:py4j.java_gateway:Command to send: c
+<<<<<<< HEAD
 o11
 sc
 e
@@ -32320,6 +32565,26 @@ ro16
 e
 
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-78ed8966-f376-4708-936e-73ff8283eedd
+=======
+o12
+sc
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro16
+DEBUG:py4j.java_gateway:Command to send: c
+o16
+conf
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro17
+DEBUG:py4j.java_gateway:Command to send: c
+z:org.apache.spark.util.Utils
+getLocalDir
+ro17
+e
+
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-02040ad7-2c51-4dff-875a-a907bfe23be5
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: r
 u
 org
@@ -32365,6 +32630,7 @@ DEBUG:py4j.java_gateway:Answer received: ym
 DEBUG:py4j.java_gateway:Command to send: c
 z:org.apache.spark.util.Utils
 createTempDir
+<<<<<<< HEAD
 s/tmp/spark-78ed8966-f376-4708-936e-73ff8283eedd
 spyspark
 e
@@ -32376,6 +32642,19 @@ getAbsolutePath
 e
 
 DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-78ed8966-f376-4708-936e-73ff8283eedd/pyspark-18847cb1-44b8-424b-a119-f411502962b3
+=======
+s/tmp/spark-02040ad7-2c51-4dff-875a-a907bfe23be5
+spyspark
+e
+
+DEBUG:py4j.java_gateway:Answer received: yro18
+DEBUG:py4j.java_gateway:Command to send: c
+o18
+getAbsolutePath
+e
+
+DEBUG:py4j.java_gateway:Answer received: ys/tmp/spark-02040ad7-2c51-4dff-875a-a907bfe23be5/pyspark-d1a3b647-5027-415c-b9f0-59556ac178de
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 DEBUG:py4j.java_gateway:Command to send: c
 o0
 get
@@ -32416,7 +32695,11 @@ e
 DEBUG:py4j.java_gateway:Answer received: yv
 DEBUG:py4j.java_gateway:Command to send: m
 d
+<<<<<<< HEAD
 o12
+=======
+o11
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
@@ -32428,7 +32711,11 @@ e
 DEBUG:py4j.java_gateway:Answer received: yv
 DEBUG:py4j.java_gateway:Command to send: m
 d
+<<<<<<< HEAD
 o15
+=======
+o14
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
@@ -32444,3 +32731,14 @@ o17
 e
 
 DEBUG:py4j.java_gateway:Answer received: yv
+<<<<<<< HEAD
+=======
+DEBUG:py4j.java_gateway:Command to send: m
+d
+o18
+e
+
+DEBUG:py4j.java_gateway:Answer received: yv
+WARNING:django.request:Forbidden (CSRF cookie not set.): /login
+WARNING:django.request:Not Found: /favicon.ico
+>>>>>>> fb009f8a99a7c5ac04aac5de6296d36e58fac8f9
