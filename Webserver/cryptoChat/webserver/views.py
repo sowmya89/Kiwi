@@ -157,3 +157,5 @@ def login(request):
         }
         )
         return HttpResponse("Successfully registered")
+    else:
+        return HttpResponse("Registeration failed")
