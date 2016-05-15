@@ -17,6 +17,8 @@
     
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
       <script type="text/javascript">
 
       google.charts.load("current", {packages:['table','corechart']});
@@ -26,7 +28,9 @@
           <% if(analysis_data != null) {
               console.log("********************");
               console.log(analysis_data[0]);
-          }
+
+
+              }
           %>
 
           var data = google.visualization.arrayToDataTable([
@@ -77,15 +81,130 @@
           chart.draw(view, options);
       }
     </script>
+      <script>
+
+          $(function () {
+
+
+              $('#containerTest').highcharts({
+                  chart: {},
+                  title: {
+                      text: 'Cyberbullying Analysis'
+                  },
+                  subtitle: {
+                      text: 'Negative sentences with the polarity'
+                  },
+                  plotOptions: {
+                      series: {
+                          allowPointSelect: true
+                      }
+                  },
+                  series: [{
+                      name: 'Sentiment polarity',
+                      data: []
+                  }]
+              });
+
+              var myData1= <%-JSON.stringify(analysis_data)%>
+                      console.log("analysis_data for highcharts: "+myData1);
+              var mySeries1 = [];
+
+              for (var i=0; i<myData1.length; i++) {
+                  console.log("!!!!!!!!"+myData1[i].sent_negative);
+                  mySeries1.push([myData1[i].sentence, myData1[i].sent_polarity*10 ]);
+
+              }
+
+              var chart = $('#containerTest').highcharts();
+              chart.series[0].setData(mySeries1);
+
+          });
+
+      </script>
+
+      <script>
+          $(function () {
+              $('#containerBar').highcharts({
+                  chart: {
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Negative Sentences Sentiment polarity'
+                  },
+                  subtitle: {
+                      text: 'Source: Twitter Dataset used to train model.'
+                  },
+                  xAxis: {
+                      type: 'category',
+                      labels: {
+                          rotation: -45,
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 9.2,
+                      title: {
+                          text: 'Sentiment polarity'
+                      }
+                  },
+                  legend: {
+                      enabled: false
+                  },
+                  tooltip: {
+                      pointFormat: 'Sentiment polarity: <b>{point.y:.1f} </b>'
+                  },
+                  series: [{
+                      name: 'Sentiment polarity',
+                      data: [ ]
+                          ,
+                      dataLabels: {
+                          enabled: false,
+                          rotation: -90,
+                          color: '#FFFFFF',
+                          align: 'right',
+                          format: '{point.y:.5f}', // one decimal
+                          y: 10, // 10 pixels down from the top
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  }]
+              });
+
+              var myData2= <%-JSON.stringify(analysis_data)%>
+                      console.log("analysis_data for highcharts: "+myData2);
+              var mySeries2 = [];
+
+              for (var i=0; i<myData2.length; i++) {
+                  console.log("!!!!!!!!"+myData2[i].sent_negative);
+                  mySeries2.push([myData2[i].sentence, myData2[i].sent_negative*10 ]);
+
+              }
+
+              var chart = $('#containerBar').highcharts();
+              chart.series[0].setData(mySeries2);
+          });
+      </script>
+
   </head>
   <body>
   <div>
       <%- include header.ejs %>
   </div><br><br><br>
-    <div id="chart_div1" style="width: 1500px; height: 300px;"></div>
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <div id="containerTest" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+  <br><br><br><br>
+  <div id="containerBar" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+  <br><br><br><br>
+    <!--<div id="chart_div1" style="width: 1500px; height: 300px;"></div>
+  <br><br><br><br><br><br><br><br><br><br><br>-->
   <div id="table_div" style="width: 750px; height: 600px;"></div>
   <br><br><br><br>
+
+
   <div>
       <%- include footer.ejs %>
   </div>
