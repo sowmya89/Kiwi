@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^register_device$', views.register_device, name='register_device'),
     url(r'^login$', views.login, name='login'),
     url(r'^test_message$', views.test_message, name='test_message'),
+    url(r'^getuser$', views.getuser, name='getuser'),
     url(r'^process_registeration$', views.process_registeration, name='process_registeration'),
 ]
+
