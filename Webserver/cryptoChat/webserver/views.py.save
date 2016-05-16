@@ -21,7 +21,7 @@ db = client['Kiwichat']
 send = True
 threshold_limit = 5
 threshold_value = 0
-blocked = False
+
 # Create your views here.
 CSRF_COOKIE_SECURE = False
 def index(request):
@@ -36,13 +36,13 @@ def process_message(request):
         print(document['polarity'])
     return HttpResponse(document['polarity'])
 
-def send_emergency_message(name,number,receiver):
+def process_emergency_message(number,name,receiver):
     # Find these values at https://twilio.com/user/account
     account_sid = "AC2a781fd7b2047a8d02bf4800fef9a244"
     auth_token = "c6518ef76c1301cc694db02e74ce6430"
     client = TwilioRestClient(account_sid, auth_token)
 
-    message = client.messages.create(to="+16698886221", from_="+13477089565",
+    message = client.messages.create(to=number, from_="+15555555555",
                                          body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
 
 @csrf_exempt
@@ -80,7 +80,6 @@ def getuser(request):
 @csrf_exempt
 def send_message(request):
     global send
-    global threshold_value, threshold_limit,blocked
     if request.method == 'POST':
         message = request.POST.get("message")
         '''
@@ -92,15 +91,12 @@ def send_message(request):
         senderName = 'Sowmya'
         senderPhoneNumber = '+16692269989'
         receiverPhoneNumber = '+16698886221'
-	contactOneName = "Maithili Gole"
-	contactTwoName = "Vidya GS"
-	contactOnePhone = "+16692261641"
-	contactTwoPhone = "+16509449268"
 	'''
         cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
         threshold_value = cursor['threshold_value']
         blocked = cursor['blocked']
-	
+
+	'''
         cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })
         for document in cursor:
             deviceId = (document['deviceId'])
@@ -150,13 +146,11 @@ def send_message(request):
                     },
                 }
                 )
-		'''
                 cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
                 contactOnePhone = cursor['contactOnePhone']
                 contactOneName = cursor['contactOneName']
                 contactTwoPhone = cursor['contactTwoPhone']
                 contactTwoName = cursor['contactOTwoName']
-		'''
                 send_emergency_message(senderName,contactOnePhone,contactOneName)
                 send_emergency_message(senderName,contactTwoPhone,contactTwoName)
 
