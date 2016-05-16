@@ -81,15 +81,19 @@ def send_message(request):
     global send
     if request.method == 'POST':
         message = request.POST.get("message")
+        '''
         senderPhoneNumber = request.POST.get("senderPhoneNumber")
         senderName = request.POST.get("senderName")
         receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
-
+        '''
+        senderName = 'Sowmya'
+        senderPhoneNumber = '+16692269989'
+        receiverPhoneNumber = '+16698886221'
         cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
         threshold_value = cursor['threshold_value']
         blocked = cursor['blocked']
 
-        cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })[1]
+        cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })
         print "cursor : ",cursor
         deviceId = cursor['deviceId']
 
@@ -177,9 +181,9 @@ def login(request):
         contactTwoPhone = request.POST.get("contactTwoPhone")
 
         print "deviceId: ",deviceId
-	print "lastName: ",lastName
-	print "phoneNumber: ",phoneNumber
-	print "age: ",age
+	    print "lastName: ",lastName
+	    print "phoneNumber: ",phoneNumber
+	    print "age: ",age
         result = db.threshold.insert_one(
         {
             "deviceId":deviceId,
