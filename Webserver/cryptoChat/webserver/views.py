@@ -89,7 +89,7 @@ def send_message(request):
         threshold_value = cursor['threshold_value']
         blocked = cursor['blocked']
 
-        cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })
+        cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })[1]
         deviceId = cursor['deviceId']
 
         print "message: ",message
