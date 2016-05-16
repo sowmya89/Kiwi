@@ -202,7 +202,21 @@ function wordcloud(req,res) {
 
 function yearlyStats(req,res) {
 
-    var query = "select * from cmpe295b_webapp.cyberbullying_yearly;";
+    ejs.renderFile('./views/yearlyStats.ejs',function(err, result)
+    {
+        // render on success
+        if (!err)
+        {
+            res.end(result);
+        }
+        // render or error
+        else
+        {
+            res.end('An error occurred');
+            console.log(err);
+        }
+    });
+   /* var query = "select * from cmpe295b_webapp.cyberbullying_yearly;";
     console.log("Query is:" + query);
 
 
@@ -249,7 +263,7 @@ function yearlyStats(req,res) {
             }
 
         }
-    }, query);
+    }, query);*/
 
 }
 

@@ -2,12 +2,20 @@ var mysql = require('mysql');
 
 function getConnection() {
     var connection = mysql.createConnection({
+        host : 'cmpe280.chowxkprohlg.us-west-1.rds.amazonaws.com',
+        user : 'ciphers',
+        password: 'ciphers280',
+        database : 'cmpe295b_webapp',
+        port: 3306
+    });
+
+   /* var connection = mysql.createConnection({
         host : 'localhost',
         user : 'root',
         password: 'maithili@123',
         database : 'cmpe295b_webapp',
         port: 3306
-    });
+    });*/
     return connection;  
 }
 

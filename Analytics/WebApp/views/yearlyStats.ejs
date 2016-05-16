@@ -26,53 +26,10 @@ and open the template in the editor.
     <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
     <script type="text/javascript">
 
-        var chartdata= <%-JSON.stringify(cyberbullyingData_genderwise)%>
-        console.log("chartdata: "+chartdata);
-        var category = [];
-        for(j=0;j<chartdata.length;j++){
-            category[j]=[chartdata[j].Year]
-            console.log("chartdata[j].Year-"+chartdata[j].Year)
-            // name[j]=[chartdata[j].seriesname]
-            // data[j]=[chartdata[j].wdata,chartdata[j].hdata,chartdata[j].cdata]
-        }
 
-        var x = [];
-        for (var j =0 ; j<chartdata.length; j++)
-        {
-            x.push({
-                name: chartdata[j].Year
-            })
-        }
-
-
-        var t = [];
-        for (var j =0 ; j<chartdata.length; j++)
-        {
-            t.push({
-                name: chartdata[j].Category,
-                data: chartdata[j].Bullied
-            })
-        }
-
-        for(var j=0;j<t.length; j++)
-        {
-            console.log("t array"+ t[j].name);
-        }
-
-        </script>
-    <script type="text/javascript">
-
-        <% if(cyberbullyingData_genderwise != null) {
-            console.log("Inside ejs file********************");
-            console.log(cyberbullyingData_genderwise[0]);
-        }
-        else
-        {
-            console.log("No data found!")
-        }
-        %>
 
 
         $(function () {
