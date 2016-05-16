@@ -112,14 +112,14 @@ def send_message(request):
             }
             )
         print "Threshold: ",threshold_value
-        '''if(threshold_value <= threshold_limit and not blocked):
+        if(threshold_value <= threshold_limit and not blocked):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
                 data = {'message': message,'polarity':bar}
                 reg_id = deviceId
                 gcm.plaintext_request(registration_id=reg_id, data=data)
                 print "forward"
                 return HttpResponse("Successfully sent")
-            else:
+        else:
                 result = db.threshold.update_one(
                 {"phoneNumber": senderPhoneNumber},
                 {
@@ -135,7 +135,7 @@ def send_message(request):
                 contactTwoName = cursor['contactOTwoName']
                 send_emergency_message(senderName,contactOnePhone,contactOneName)
                 send_emergency_message(senderName,contactTwoPhone,contactTwoName)
-        '''
+
         return HttpResponse(bar)
 
 @csrf_exempt
