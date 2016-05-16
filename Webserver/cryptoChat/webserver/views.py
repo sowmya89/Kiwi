@@ -44,6 +44,21 @@ def process_emergency_message(number,name,receiver):
                                          body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
 
 @csrf_exempt
+def test_message(request):
+    global send
+    if request.method == 'POST':
+        message = request.POST.get("message")
+
+        print "message: ",message
+
+        if len(message.split()) <= 3:
+			bar = evaluate_small_features(message)
+        else:
+    		bar = evaluate_features(message)
+
+        return HttpResponse(bar)
+
+@csrf_exempt
 def send_message(request):
     global send
     if request.method == 'POST':
@@ -162,7 +177,7 @@ def login(request):
             "blocked":False
         }
         )
-	
+
 	data = {}
 	data['response'] = "Successfully Registered"
 	json_data = json.dumps(data)
