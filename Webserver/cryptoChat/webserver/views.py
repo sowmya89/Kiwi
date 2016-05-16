@@ -44,6 +44,15 @@ def send_emergency_message(name,number,receiver):
 
     message = client.messages.create(to="+16698886221", from_="+13477089565",
                                          body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
+def forward_message(name,number,receiver,message):
+    # Find these values at https://twilio.com/user/account
+    account_sid = "AC2a781fd7b2047a8d02bf4800fef9a244"
+    auth_token = "c6518ef76c1301cc694db02e74ce6430"
+    client = TwilioRestClient(account_sid, auth_token)
+
+    message = client.messages.create(to="+16698886221", from_="+13477089565",
+                                         body="Forward from Kiwi "+ message )
+
 
 @csrf_exempt
 def reset(request):
@@ -111,7 +120,7 @@ def send_message(request):
         cursor = db.threshold.find_one({'phoneNumber':senderPhoneNumber })
         threshold_value = cursor['threshold_value']
         blocked = cursor['blocked']
-	
+
         cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })
         for document in cursor:
             deviceId = (document['deviceId'])
