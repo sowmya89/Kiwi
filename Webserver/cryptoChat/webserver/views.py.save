@@ -143,9 +143,6 @@ def login(request):
         contactTwoPhone = request.POST.get("contactTwoPhone")
 
         print "deviceId: ",deviceId
-	print "lastName: ",lastName
-	print "phoneNumber: ",phoneNumber
-	print "age: ",age
         result = db.threshold.insert_one(
         {
             "deviceId":deviceId,
@@ -162,14 +159,10 @@ def login(request):
             "blocked":False
         }
         )
-	
 	data = {}
-	data['response'] = "Successfully Registered"
+	data['response'] = 'Successfully Registered'
 	json_data = json.dumps(data)
-	print "json data: ",json_data
-        return JsonResponse(json_data,safe=False)
+        return HttpResponse("Successfully registered")
     else:
-	data = {}
-        data['response'] = 'Registeration Failed'
-        json_data = json.dumps(data)
-        return JsonResponse(json_data,safe=False)
+        return HttpResponse("Registeration failed")
+JsonResponse
