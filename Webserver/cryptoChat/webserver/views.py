@@ -51,7 +51,7 @@ def reset(request):
     if request.method == 'GET':
         threshold_value = 0
 	blocked = False
-        return HttpResponse(success)
+        return HttpResponse("success")
 
 
 @csrf_exempt
@@ -100,9 +100,9 @@ def send_message(request):
         receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
         '''
         deviceId = 'APA91bG7cYBg0rCWN_HFT_QvDg40TKsxiTquFXgZDbQv18Tj-Ko9EvAVCgx0DW10rzdzS90PkUGlgIEXwjDgH6Xl_C2zH8-WoJVJvLkzdDV9NxctDXhTQdPOhtiVm50km6YdtdkiuXNw'
-        senderName = 'Sowmya'
-        senderPhoneNumber = '+16692269989'
-        receiverPhoneNumber = '+16698886221'
+        senderName = 'Nishanth'
+        senderPhoneNumber = '+16698886221'
+        receiverPhoneNumber = '+16692269989'
 	contactOneName = "Maithili Gole"
 	contactTwoName = "Vidya GS"
 	contactOnePhone = "+16692261641"
