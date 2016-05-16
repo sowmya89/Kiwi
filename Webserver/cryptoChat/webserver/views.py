@@ -13,6 +13,7 @@ from gcm import *
 import urllib3
 import json
 from django.http import JsonResponse
+from bson import json_util
 #urllib3.disable_warnings()
 
 client = MongoClient('localhost', 27017)
@@ -63,9 +64,17 @@ def getuser(request):
     global send
     if request.method == 'POST':
         phoneNumber = request.POST.get("phoneNumber")
-        data =  db.threshold.find({ phoneNumber: { "$ne": "phoneNumber" }},{phoneNumber : 1, firstName : 1, _id : 0})
-	print "data: ",data
-        return JsonResponse(data,safe=False)
+	all_records = []
+	json_data = {}
+        data =  db.threshold.find({ phoneNumber: { "$ne": phoneNumber }},{"phoneNumber" : 1, "firstName": 1, "_id" : 0})
+	for record in data:
+		json_data['phoneNumber'] = record.get("phoneNumber")
+		json_data['firstName'] = record.get("firstName")
+		all_records.append(json_data)
+	json_data = json.dumps(all_records)
+
+	print "data: ",json_data
+        return JsonResponse(json_data,safe=False)
 
 @csrf_exempt
 def send_message(request):
