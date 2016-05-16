@@ -42,17 +42,8 @@ def send_emergency_message(name,number,receiver):
     auth_token = "c6518ef76c1301cc694db02e74ce6430"
     client = TwilioRestClient(account_sid, auth_token)
 
-    message = client.messages.create(to="+16698886221", from_="+13477089565",
+    message = client.messages.create(to=number, from_="+16698886365",
                                          body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
-
-@csrf_exempt
-def reset(request):
-    global send,threshold_value,blocked
-    if request.method == 'GET':
-        threshold_value = 0
-	blocked = False
-        return HttpResponse(success)
-
 
 @csrf_exempt
 def test_message(request):
@@ -61,15 +52,13 @@ def test_message(request):
         message = request.POST.get("message")
 
         print "message: ",message
-
+(347) 708-9565
         if len(message.split()) <= 3:
-                        bar = evaluate_small_features(message)
+			bar = evaluate_small_features(message)
         else:
-                bar = evaluate_features(message)
+    		bar = evaluate_features(message)
 
         return HttpResponse(bar)
-
-
 
 @csrf_exempt
 def getuser(request):
