@@ -62,7 +62,7 @@ function homepage(req,res) {
                 sent_pos = results;
 
                 //console.log(state);
-                res.render('homepage', {
+                res.render('Homepage', {
                     sent_pos : sent_pos,
                     sent_neg: sent_neg,
                     count_data:count_data
@@ -272,4 +272,3 @@ exports.homepage=homepage;
 exports.wordcloud=wordcloud;
 exports.c2=c2;
 exports.yearlyStats=yearlyStats;
-
