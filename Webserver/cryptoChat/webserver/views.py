@@ -51,7 +51,7 @@ def forward_message(name,number,receiver,message):
     client = TwilioRestClient(account_sid, auth_token)
 
     message = client.messages.create(to="+16698886221", from_="+13477089565",
-                                         body="Forward from Kiwi "+ message )
+                                         body="Forward from Kiwi by : " + name + "message : \n" + message )
 
 
 @csrf_exempt
@@ -108,7 +108,7 @@ def send_message(request):
         senderName = request.POST.get("senderName")
         receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
         '''
-        deviceId = 'APA91bG7cYBg0rCWN_HFT_QvDg40TKsxiTquFXgZDbQv18Tj-Ko9EvAVCgx0DW10rzdzS90PkUGlgIEXwjDgH6Xl_C2zH8-WoJVJvLkzdDV9NxctDXhTQdPOhtiVm50km6YdtdkiuXNw'
+        deviceId = 'APA91bGQ5DH6a0l2xc7l90R93qHIYCTWfF2Maxrg_YV3jpNxgquAubADAa13zOduoZhJ5wZcNOpfv5IH3GEmO5HWAgbQiWrwd_wiAKu5VCLgwo3t9WNOB4Ygrgsg_Y2N6GOKPRSVe4bP'
         senderName = 'Nishanth'
         senderPhoneNumber = '+16698886221'
         receiverPhoneNumber = '+16692269989'
@@ -158,6 +158,7 @@ def send_message(request):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
                 data = {'message': message,'polarity':bar}
                 reg_id = deviceId
+		forward_message(senderName,contactOnePhone,contactOneName,message)
                 gcm.plaintext_request(registration_id=reg_id, data=data)
                 print "forward"
                 return HttpResponse("Successfully sent")
