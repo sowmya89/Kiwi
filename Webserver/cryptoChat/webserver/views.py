@@ -86,6 +86,7 @@ def send_message(request):
         senderName = request.POST.get("senderName")
         receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
         '''
+        deviceId = 'APA91bG7cYBg0rCWN_HFT_QvDg40TKsxiTquFXgZDbQv18Tj-Ko9EvAVCgx0DW10rzdzS90PkUGlgIEXwjDgH6Xl_C2zH8-WoJVJvLkzdDV9NxctDXhTQdPOhtiVm50km6YdtdkiuXNw'
         senderName = 'Sowmya'
         senderPhoneNumber = '+16692269989'
         receiverPhoneNumber = '+16698886221'
@@ -94,8 +95,8 @@ def send_message(request):
         blocked = cursor['blocked']
 
         cursor = db.threshold.find({'phoneNumber':receiverPhoneNumber })
-        print "cursor : ",cursor
-        deviceId = cursor['deviceId']
+        for document in cursor:
+            deviceId = (document['deviceId'])
 
         print "message: ",message
 
