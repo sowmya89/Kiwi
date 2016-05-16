@@ -59,6 +59,15 @@ def test_message(request):
         return HttpResponse(bar)
 
 @csrf_exempt
+def getuser(request):
+    global send
+    if request.method == 'POST':
+        phoneNumber = request.POST.get("phoneNumber")
+        data =  db.threshold.find({ phoneNumber: { "$ne": "phoneNumber" }},{phoneNumber : 1, firstName : 1, _id : 0})
+	print "data: ",data
+        return JsonResponse(data,safe=False)
+
+@csrf_exempt
 def send_message(request):
     global send
     if request.method == 'POST':
@@ -182,7 +191,7 @@ def login(request):
 	data['response'] = "Successfully Registered"
 	json_data = json.dumps(data)
 	print "json data: ",json_data
-        return JsonResponse(json_data,safe=False)
+        return JsonResponse(data,safe=False)
     else:
 	data = {}
         data['response'] = 'Registeration Failed'
