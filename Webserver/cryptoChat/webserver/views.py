@@ -42,8 +42,8 @@ def send_emergency_message(name,number,receiver):
     auth_token = "c6518ef76c1301cc694db02e74ce6430"
     client = TwilioRestClient(account_sid, auth_token)
 
-    message = client.messages.create(to="+16698886221", from_="+13477089565",
-                                         body="Hi "+ receiver +", \n This is to notify that "+ name + " is receiving in appropriate messages. You are getting this message since you have been added as an emergency contact !" )
+    message = client.messages.create(to=number, from_="+13477089565",
+                                         body="Hi "+ receiver +", \n This is to notify that "+ name + " is being bullied. You are getting this message since you have been added as an emergency contact !" )
 def forward_message(name,number,receiver,message):
     # Find these values at https://twilio.com/user/account
     account_sid = "AC2a781fd7b2047a8d02bf4800fef9a244"
@@ -108,7 +108,7 @@ def send_message(request):
         senderName = request.POST.get("senderName")
         receiverPhoneNumber = request.POST.get("receiverPhoneNumber")
         '''
-        deviceId = 'APA91bGQ5DH6a0l2xc7l90R93qHIYCTWfF2Maxrg_YV3jpNxgquAubADAa13zOduoZhJ5wZcNOpfv5IH3GEmO5HWAgbQiWrwd_wiAKu5VCLgwo3t9WNOB4Ygrgsg_Y2N6GOKPRSVe4bP'
+        deviceId = 'APA91bGOGkB4MxrKpCeFp1watpnHPkQz0hc2dg48uKfDQPBFT0PL1YJITuokrAh9RFDcQP3LDhAcqAivhwOyZ_UaZIlkAuikvSpX8HVFwIt7A7WWAo1keZeuoFvMGZVcUUGBW3_iL2i0'
         senderName = 'Nishanth'
         senderPhoneNumber = '+16698886221'
         receiverPhoneNumber = '+16692269989'
@@ -128,7 +128,7 @@ def send_message(request):
         print "message: ",message
 
         if len(message.split()) <= 3:
-			bar = evaluate_small_features(message)
+		bar = evaluate_small_features(message)
         else:
     		bar = evaluate_features(message)
 
@@ -146,6 +146,7 @@ def send_message(request):
         if(bar[0] == 'neg'):
             threshold_value = threshold_value + 1
             result = db.threshold.update_one(
+
             {"phoneNumber": senderPhoneNumber},
             {
                 "$set": {
@@ -154,12 +155,12 @@ def send_message(request):
             }
             )
         print "Threshold: ",threshold_value
-        if(threshold_value <= threshold_limit and not blocked):
+        if((threshold_value <= threshold_limit and not blocked) or bar[0] == 'pos'):
                 gcm = GCM("AIzaSyDL4b5qf3_iUGuqi__BGiQ2HKud5iA14rg")
                 data = {'message': message,'polarity':bar}
                 reg_id = deviceId
 		forward_message(senderName,contactOnePhone,contactOneName,message)
-                gcm.plaintext_request(registration_id=reg_id, data=data)
+#                gcm.plaintext_request(registration_id=reg_id, data=data)
                 print "forward"
                 return HttpResponse("Successfully sent")
         else:

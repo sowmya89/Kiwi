@@ -1,0 +1,881 @@
+Performing system checks...
+
+/usr/local/lib/python2.7/dist-packages/numpy/core/fromnumeric.py:2652: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+  VisibleDeprecationWarning)
+
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/05/16 14:49:15 INFO SparkContext: Running Spark version 1.6.1
+16/05/16 14:49:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/05/16 14:49:16 WARN Utils: Your hostname, ubuntu-512mb-sfo1-01 resolves to a loopback address: 127.0.1.1; using 10.12.0.5 instead (on interface eth0)
+16/05/16 14:49:16 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+16/05/16 14:49:16 INFO SecurityManager: Changing view acls to: root
+16/05/16 14:49:16 INFO SecurityManager: Changing modify acls to: root
+16/05/16 14:49:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(root); users with modify permissions: Set(root)
+16/05/16 14:49:17 INFO Utils: Successfully started service 'sparkDriver' on port 41737.
+16/05/16 14:49:18 INFO Slf4jLogger: Slf4jLogger started
+16/05/16 14:49:18 INFO Remoting: Starting remoting
+16/05/16 14:49:19 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@10.12.0.5:59596]
+16/05/16 14:49:19 INFO Utils: Successfully started service 'sparkDriverActorSystem' on port 59596.
+16/05/16 14:49:19 INFO SparkEnv: Registering MapOutputTracker
+16/05/16 14:49:19 INFO SparkEnv: Registering BlockManagerMaster
+16/05/16 14:49:19 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-bb0a661a-60fd-4762-ae1c-5ee01e079a10
+16/05/16 14:49:19 INFO MemoryStore: MemoryStore started with capacity 517.4 MB
+16/05/16 14:49:19 INFO SparkEnv: Registering OutputCommitCoordinator
+16/05/16 14:49:19 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/05/16 14:49:19 INFO SparkUI: Started SparkUI at http://10.12.0.5:4040
+16/05/16 14:49:20 INFO Utils: Copying /workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py to /tmp/spark-4dfe7ddc-b96c-4d71-9454-15591d704324/userFiles-22895e07-227a-4d60-a7c0-d9c52ca3c2a2/manage.py
+16/05/16 14:49:20 INFO SparkContext: Added file file:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py at file:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py with timestamp 1463424560571
+16/05/16 14:49:20 INFO Executor: Starting executor ID driver on host localhost
+16/05/16 14:49:20 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 55142.
+16/05/16 14:49:20 INFO NettyBlockTransferService: Server created on 55142
+16/05/16 14:49:20 INFO BlockManagerMaster: Trying to register BlockManager
+16/05/16 14:49:20 INFO BlockManagerMasterEndpoint: Registering block manager localhost:55142 with 517.4 MB RAM, BlockManagerId(driver, localhost, 55142)
+16/05/16 14:49:20 INFO BlockManagerMaster: Registered BlockManager
+System check identified no issues (0 silenced).
+May 16, 2016 - 18:49:21
+Django version 1.9.5, using settings 'Kiwi.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+message:  test
+bar ('pos', 1)
+Threshold:  0
+Internal Server Error: /send
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/webserver/views.py", line 163, in send_message
+    gcm.plaintext_request(registration_id=reg_id, data=data)
+  File "/usr/local/lib/python2.7/dist-packages/gcm/gcm.py", line 439, in plaintext_request
+    info = self.handle_plaintext_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/gcm/gcm.py", line 378, in handle_plaintext_response
+    self.raise_error(value)
+  File "/usr/local/lib/python2.7/dist-packages/gcm/gcm.py", line 356, in raise_error
+    "A Registration ID is tied to a certain group of senders")
+GCMMismatchSenderIdException: A Registration ID is tied to a certain group of senders
+[16/May/2016 18:49:29] "POST /send HTTP/1.1" 500 84634
+16/05/16 14:49:53 INFO SparkContext: Invoking stop() from shutdown hook
+16/05/16 14:49:53 INFO SparkUI: Stopped Spark web UI at http://10.12.0.5:4040
+16/05/16 14:49:53 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/05/16 14:49:53 INFO MemoryStore: MemoryStore cleared
+16/05/16 14:49:53 INFO BlockManager: BlockManager stopped
+16/05/16 14:49:53 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/05/16 14:49:53 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/05/16 14:49:53 INFO RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+16/05/16 14:49:53 INFO SparkContext: Successfully stopped SparkContext
+16/05/16 14:49:53 INFO ShutdownHookManager: Shutdown hook called
+16/05/16 14:49:53 INFO ShutdownHookManager: Deleting directory /tmp/spark-4dfe7ddc-b96c-4d71-9454-15591d704324
+16/05/16 14:49:53 INFO ShutdownHookManager: Deleting directory /tmp/spark-4dfe7ddc-b96c-4d71-9454-15591d704324/pyspark-5485daa3-7085-4596-b7ca-2b84566929eb
+16/05/16 14:49:53 INFO RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.
+Performing system checks...
+
+/usr/local/lib/python2.7/dist-packages/numpy/core/fromnumeric.py:2652: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+  VisibleDeprecationWarning)
+
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/05/16 14:52:13 INFO SparkContext: Running Spark version 1.6.1
+16/05/16 14:52:13 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/05/16 14:52:14 WARN Utils: Your hostname, ubuntu-512mb-sfo1-01 resolves to a loopback address: 127.0.1.1; using 10.12.0.5 instead (on interface eth0)
+16/05/16 14:52:14 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+16/05/16 14:52:14 INFO SecurityManager: Changing view acls to: root
+16/05/16 14:52:14 INFO SecurityManager: Changing modify acls to: root
+16/05/16 14:52:14 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(root); users with modify permissions: Set(root)
+16/05/16 14:52:18 WARN ThreadLocalRandom: Failed to generate a seed from SecureRandom within 3 seconds. Not enough entrophy?
+16/05/16 14:52:18 INFO Utils: Successfully started service 'sparkDriver' on port 59106.
+16/05/16 14:52:19 INFO Slf4jLogger: Slf4jLogger started
+16/05/16 14:52:19 INFO Remoting: Starting remoting
+16/05/16 14:52:19 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriverActorSystem@10.12.0.5:56181]
+16/05/16 14:52:19 INFO Utils: Successfully started service 'sparkDriverActorSystem' on port 56181.
+16/05/16 14:52:19 INFO SparkEnv: Registering MapOutputTracker
+16/05/16 14:52:19 INFO SparkEnv: Registering BlockManagerMaster
+16/05/16 14:52:19 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-5980f451-d9ee-4f9f-ac97-9007b038cfa2
+16/05/16 14:52:19 INFO MemoryStore: MemoryStore started with capacity 517.4 MB
+16/05/16 14:52:19 INFO SparkEnv: Registering OutputCommitCoordinator
+16/05/16 14:52:20 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/05/16 14:52:20 INFO SparkUI: Started SparkUI at http://10.12.0.5:4040
+16/05/16 14:52:20 INFO Utils: Copying /workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py to /tmp/spark-f75efe56-9b50-498a-8149-31bab4c7c4af/userFiles-813e89f4-20b5-4c52-ad43-b413feb122f3/manage.py
+16/05/16 14:52:20 INFO SparkContext: Added file file:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py at file:/workspace/cryptoChat/Kiwi/Webserver/cryptoChat/manage.py with timestamp 1463424740898
+16/05/16 14:52:21 INFO Executor: Starting executor ID driver on host localhost
+16/05/16 14:52:21 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40495.
+16/05/16 14:52:21 INFO NettyBlockTransferService: Server created on 40495
+16/05/16 14:52:21 INFO BlockManagerMaster: Trying to register BlockManager
+16/05/16 14:52:21 INFO BlockManagerMasterEndpoint: Registering block manager localhost:40495 with 517.4 MB RAM, BlockManagerId(driver, localhost, 40495)
+16/05/16 14:52:21 INFO BlockManagerMaster: Registered BlockManager
+System check identified no issues (0 silenced).
+May 16, 2016 - 18:52:21
+Django version 1.9.5, using settings 'Kiwi.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+message:  test
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 18:52:29] "POST /send HTTP/1.1" 200 17
+message:  tea time 
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 19:34:59] "POST /send HTTP/1.1" 200 17
+message:  YouTube
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 20:01:23] "POST /send HTTP/1.1" 200 17
+[16/May/2016 20:02:07] "GET /reset HTTP/1.1" 200 7
+message:  hello 
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 20:02:20] "POST /send HTTP/1.1" 200 17
+message:  hello 
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 20:02:21] "POST /send HTTP/1.1" 200 17
+message:  fuck you
+bar ('neg', 1)
+Threshold:  1
+forward
+[16/May/2016 20:02:52] "POST /send HTTP/1.1" 200 17
+message:  asshole
+bar ('neg', 1)
+Threshold:  2
+forward
+[16/May/2016 20:03:01] "POST /send HTTP/1.1" 200 17
+message:  bastard
+bar ('neg', 1)
+Threshold:  3
+forward
+[16/May/2016 20:03:27] "POST /send HTTP/1.1" 200 17
+message:  bastard
+bar ('neg', 1)
+Threshold:  4
+forward
+[16/May/2016 20:03:28] "POST /send HTTP/1.1" 200 17
+message:  fuck you 
+bar ('neg', 1)
+Threshold:  5
+forward
+[16/May/2016 20:03:43] "POST /send HTTP/1.1" 200 17
+message:  fuck you 
+bar ('neg', 1)
+Threshold:  6
+[16/May/2016 20:03:45] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  7
+[16/May/2016 20:03:59] "POST /send HTTP/1.1" 200 4
+message:  hi
+bar ('pos', 1)
+Threshold:  7
+forward
+[16/May/2016 20:04:07] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  7
+forward
+[16/May/2016 20:04:08] "POST /send HTTP/1.1" 200 17
+[16/May/2016 20:04:31] "GET /reset HTTP/1.1" 200 7
+message:  this is a good day
+bar ('neg', 1)
+Threshold:  1
+forward
+[16/May/2016 20:46:11] "POST /send HTTP/1.1" 200 17
+message:  this is a good day
+bar ('neg', 1)
+Threshold:  2
+forward
+[16/May/2016 20:46:13] "POST /send HTTP/1.1" 200 17
+message:  asshole
+bar ('neg', 1)
+Threshold:  3
+forward
+[16/May/2016 20:46:27] "POST /send HTTP/1.1" 200 17
+message:  assholea
+bar ('pos', 1)
+Threshold:  3
+forward
+[16/May/2016 20:46:31] "POST /send HTTP/1.1" 200 17
+message:  asshole
+bar ('neg', 1)
+Threshold:  4
+forward
+[16/May/2016 20:46:38] "POST /send HTTP/1.1" 200 17
+message:  asshole
+bar ('neg', 1)
+Threshold:  5
+forward
+[16/May/2016 20:46:40] "POST /send HTTP/1.1" 200 17
+message:  asshole
+bar ('neg', 1)
+Threshold:  6
+[16/May/2016 20:46:44] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  7
+[16/May/2016 20:46:46] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  8
+[16/May/2016 20:46:49] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  9
+[16/May/2016 20:46:51] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  10
+[16/May/2016 20:46:53] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  11
+[16/May/2016 20:46:54] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  12
+[16/May/2016 20:46:58] "POST /send HTTP/1.1" 200 4
+message:  asshole
+bar ('neg', 1)
+Threshold:  13
+[16/May/2016 20:47:00] "POST /send HTTP/1.1" 200 4
+message:  as 
+bar ('pos', 1)
+Threshold:  13
+forward
+[16/May/2016 20:47:03] "POST /send HTTP/1.1" 200 17
+message:  as 
+bar ('pos', 1)
+Threshold:  13
+forward
+[16/May/2016 20:47:05] "POST /send HTTP/1.1" 200 17
+message:  as 
+bar ('pos', 1)
+Threshold:  13
+forward
+[16/May/2016 20:47:08] "POST /send HTTP/1.1" 200 17
+message:  as 
+bar ('pos', 1)
+Threshold:  13
+forward
+[16/May/2016 20:47:11] "POST /send HTTP/1.1" 200 17
+[16/May/2016 20:49:04] "GET /reset HTTP/1.1" 200 7
+message:  gfvifhifb
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 20:52:19] "POST /send HTTP/1.1" 200 17
+message:  gfvifhifb
+bar ('pos', 1)
+Threshold:  0
+forward
+[16/May/2016 20:52:20] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  1
+forward
+[16/May/2016 20:56:23] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  2
+forward
+[16/May/2016 20:56:26] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  3
+forward
+[16/May/2016 20:56:35] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  4
+forward
+[16/May/2016 20:56:37] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  5
+forward
+[16/May/2016 20:56:42] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  6
+[16/May/2016 20:56:46] "POST /send HTTP/1.1" 200 4
+message:  bi
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:56:59] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:11] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:12] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:14] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:15] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:16] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:19] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:21] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:23] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:24] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:25] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:26] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:27] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:28] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:28] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:29] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:30] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:31] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:32] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:33] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:34] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:35] "POST /send HTTP/1.1" 200 17
+message:  lol
+bar ('pos', 1)
+Threshold:  6
+forward
+[16/May/2016 20:57:36] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  7
+[16/May/2016 20:57:44] "POST /send HTTP/1.1" 200 4
+message:  fuck
+bar ('neg', 1)
+Threshold:  8
+[16/May/2016 20:57:46] "POST /send HTTP/1.1" 200 4
+message:  fuck
+bar ('neg', 1)
+Threshold:  9
+[16/May/2016 20:57:48] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  10
+[16/May/2016 20:58:15] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  11
+[16/May/2016 20:58:17] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  12
+[16/May/2016 20:58:19] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  13
+[16/May/2016 20:58:20] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  14
+[16/May/2016 20:58:22] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  15
+[16/May/2016 20:58:24] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  16
+[16/May/2016 20:58:25] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  17
+[16/May/2016 20:58:27] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  18
+[16/May/2016 20:58:29] "POST /send HTTP/1.1" 200 4
+message:  mother fucker
+bar ('neg', 1)
+Threshold:  19
+[16/May/2016 20:58:30] "POST /send HTTP/1.1" 200 4
+message:  assbutt
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:32] "POST /send HTTP/1.1" 200 17
+message:  assbutt
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:35] "POST /send HTTP/1.1" 200 17
+message:  assbutt
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:35] "POST /send HTTP/1.1" 200 17
+message:  assbutt
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:36] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:37] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:38] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:39] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:40] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:41] "POST /send HTTP/1.1" 200 17
+message:  assault 
+bar ('pos', 1)
+Threshold:  19
+forward
+[16/May/2016 20:58:41] "POST /send HTTP/1.1" 200 17
+message:  bollocks
+bar ('neg', 1)
+Threshold:  20
+[16/May/2016 20:58:45] "POST /send HTTP/1.1" 200 4
+message:  bollocks
+bar ('neg', 1)
+Threshold:  21
+[16/May/2016 20:58:47] "POST /send HTTP/1.1" 200 4
+message:  bollocks
+bar ('neg', 1)
+Threshold:  22
+[16/May/2016 20:58:48] "POST /send HTTP/1.1" 200 4
+message:  bollocks
+bar ('neg', 1)
+Threshold:  23
+[16/May/2016 20:58:50] "POST /send HTTP/1.1" 200 4
+message:  bollocks
+bar ('neg', 1)
+Threshold:  24
+[16/May/2016 20:58:52] "POST /send HTTP/1.1" 200 4
+message:  dick
+bar ('neg', 1)
+Threshold:  25
+[16/May/2016 20:58:53] "POST /send HTTP/1.1" 200 4
+message:  dick
+bar ('neg', 1)
+Threshold:  26
+[16/May/2016 20:58:55] "POST /send HTTP/1.1" 200 4
+message:  bugger
+bar ('pos', 1)
+Threshold:  26
+forward
+[16/May/2016 20:59:06] "POST /send HTTP/1.1" 200 17
+message:  bugger
+bar ('pos', 1)
+Threshold:  26
+forward
+[16/May/2016 20:59:07] "POST /send HTTP/1.1" 200 17
+message:  bugger
+bar ('pos', 1)
+Threshold:  26
+forward
+[16/May/2016 20:59:08] "POST /send HTTP/1.1" 200 17
+message:  bugger
+bar ('pos', 1)
+Threshold:  26
+forward
+[16/May/2016 20:59:09] "POST /send HTTP/1.1" 200 17
+message:  fuck off
+bar ('neg', 1)
+Threshold:  27
+[16/May/2016 20:59:24] "POST /send HTTP/1.1" 200 4
+message:  fuck off
+bar ('neg', 1)
+Threshold:  28
+[16/May/2016 20:59:25] "POST /send HTTP/1.1" 200 4
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:40] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:40] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:41] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:42] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:43] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:44] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:45] "POST /send HTTP/1.1" 200 17
+message:  sexy
+bar ('pos', 1)
+Threshold:  28
+forward
+[16/May/2016 20:59:45] "POST /send HTTP/1.1" 200 17
+message:  bitch
+bar ('neg', 1)
+Threshold:  29
+[16/May/2016 20:59:52] "POST /send HTTP/1.1" 200 4
+message:  bitch
+bar ('neg', 1)
+Threshold:  30
+[16/May/2016 20:59:54] "POST /send HTTP/1.1" 200 4
+message:  bitch
+bar ('neg', 1)
+Threshold:  31
+[16/May/2016 20:59:55] "POST /send HTTP/1.1" 200 4
+message:  bitch
+bar ('neg', 1)
+Threshold:  32
+[16/May/2016 20:59:57] "POST /send HTTP/1.1" 200 4
+message:  bitch
+bar ('neg', 1)
+Threshold:  33
+[16/May/2016 20:59:58] "POST /send HTTP/1.1" 200 4
+message:  bitch
+bar ('neg', 1)
+Threshold:  34
+[16/May/2016 21:00:00] "POST /send HTTP/1.1" 200 4
+message:  retard
+bar ('pos', 1)
+Threshold:  34
+forward
+[16/May/2016 21:00:04] "POST /send HTTP/1.1" 200 17
+message:  dumbfuck
+bar ('neg', 1)
+Threshold:  35
+[16/May/2016 21:00:58] "POST /send HTTP/1.1" 200 4
+message:  dumbfuck
+bar ('neg', 1)
+Threshold:  36
+[16/May/2016 21:01:01] "POST /send HTTP/1.1" 200 4
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:17] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:19] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:20] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:22] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:23] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:24] "POST /send HTTP/1.1" 200 17
+message:  lfuckl
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:25] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  36
+forward
+[16/May/2016 21:01:55] "POST /send HTTP/1.1" 200 17
+message:  fucker
+bar ('neg', 1)
+Threshold:  37
+[16/May/2016 21:02:14] "POST /send HTTP/1.1" 200 4
+message:  fucker
+bar ('neg', 1)
+Threshold:  38
+[16/May/2016 21:02:16] "POST /send HTTP/1.1" 200 4
+message:  fucker
+bar ('neg', 1)
+Threshold:  39
+[16/May/2016 21:02:17] "POST /send HTTP/1.1" 200 4
+message:  fucker
+bar ('neg', 1)
+Threshold:  40
+[16/May/2016 21:02:27] "POST /send HTTP/1.1" 200 4
+message:  f.u.c.k.e.r
+bar ('pos', 1)
+Threshold:  40
+forward
+[16/May/2016 21:02:44] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  40
+forward
+[16/May/2016 21:03:45] "POST /send HTTP/1.1" 200 17
+message:  fucker
+bar ('neg', 1)
+Threshold:  41
+[16/May/2016 21:03:56] "POST /send HTTP/1.1" 200 4
+message:  burnaby
+bar ('pos', 1)
+Threshold:  41
+forward
+[16/May/2016 21:04:14] "POST /send HTTP/1.1" 200 17
+message:  burnaby
+bar ('pos', 1)
+Threshold:  41
+forward
+[16/May/2016 21:04:15] "POST /send HTTP/1.1" 200 17
+message:  dumbfuck
+bar ('neg', 1)
+Threshold:  42
+[16/May/2016 21:04:43] "POST /send HTTP/1.1" 200 4
+message:  dumb
+bar ('pos', 1)
+Threshold:  42
+forward
+[16/May/2016 21:04:50] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  42
+forward
+[16/May/2016 21:06:18] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  43
+[16/May/2016 21:06:28] "POST /send HTTP/1.1" 200 4
+message:  
+hi
+bar ('pos', 1)
+Threshold:  43
+forward
+[16/May/2016 21:09:11] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  44
+[16/May/2016 21:09:25] "POST /send HTTP/1.1" 200 4
+message:  fuck
+bar ('neg', 1)
+Threshold:  45
+[16/May/2016 21:09:27] "POST /send HTTP/1.1" 200 4
+message:  fucker
+bar ('neg', 1)
+Threshold:  46
+[16/May/2016 21:09:31] "POST /send HTTP/1.1" 200 4
+message:  yo
+bar ('pos', 1)
+Threshold:  46
+forward
+[16/May/2016 21:13:51] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  47
+[16/May/2016 21:13:59] "POST /send HTTP/1.1" 200 4
+message:  hi
+bar ('pos', 1)
+Threshold:  47
+forward
+[16/May/2016 21:21:26] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  48
+[16/May/2016 21:21:36] "POST /send HTTP/1.1" 200 4
+message:  hi 
+bar ('pos', 1)
+Threshold:  48
+forward
+[16/May/2016 21:33:58] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  49
+[16/May/2016 21:35:52] "POST /send HTTP/1.1" 200 4
+message:  good day
+bar ('pos', 1)
+Threshold:  49
+forward
+[16/May/2016 21:36:13] "POST /send HTTP/1.1" 200 17
+message:  f,u,c,k
+bar ('pos', 1)
+Threshold:  49
+forward
+[16/May/2016 21:36:48] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  49
+forward
+[16/May/2016 22:07:02] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  50
+[16/May/2016 22:07:17] "POST /send HTTP/1.1" 200 4
+message:  dick head
+bar ('neg', 1)
+Threshold:  51
+[16/May/2016 22:12:19] "POST /send HTTP/1.1" 200 4
+message:  head
+bar ('pos', 1)
+Threshold:  51
+forward
+[16/May/2016 22:12:31] "POST /send HTTP/1.1" 200 17
+message:  hi
+bar ('pos', 1)
+Threshold:  51
+forward
+[16/May/2016 22:25:16] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  52
+[16/May/2016 22:26:00] "POST /send HTTP/1.1" 200 4
+message:  screw you
+bar ('pos', 1)
+Threshold:  52
+forward
+[16/May/2016 22:40:12] "POST /send HTTP/1.1" 200 17
+message:  screw you
+bar ('pos', 1)
+Threshold:  52
+forward
+[16/May/2016 22:40:15] "POST /send HTTP/1.1" 200 17
+message:  screw you
+bar ('pos', 1)
+Threshold:  52
+forward
+[16/May/2016 22:40:17] "POST /send HTTP/1.1" 200 17
+message:  bitch
+bar ('neg', 1)
+Threshold:  53
+[16/May/2016 22:40:28] "POST /send HTTP/1.1" 200 4
+message:  b,I,t,c,h
+bar ('pos', 1)
+Threshold:  53
+forward
+[16/May/2016 22:41:45] "POST /send HTTP/1.1" 200 17
+message:  hello
+bar ('pos', 1)
+Threshold:  53
+forward
+[16/May/2016 22:46:07] "POST /send HTTP/1.1" 200 17
+message:  fuck
+bar ('neg', 1)
+Threshold:  54
+[16/May/2016 22:46:19] "POST /send HTTP/1.1" 200 4
+[17/May/2016 16:50:26] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01\xfc\x03\x03\xe1\xfe\x11cnN\xb7')
+You're accessing the development server over HTTPS, but it only supports HTTP.
+Not Found: /https:/m.baidu.com/
+[17/May/2016 18:06:42] "GET https://m.baidu.com/ HTTP/1.1" 404 1655
+16/05/17 15:20:54 INFO SparkContext: Invoking stop() from shutdown hook
+16/05/17 15:20:54 INFO SparkUI: Stopped Spark web UI at http://10.12.0.5:4040
+16/05/17 15:20:54 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/05/17 15:20:54 INFO MemoryStore: MemoryStore cleared
+16/05/17 15:20:54 INFO BlockManager: BlockManager stopped
+16/05/17 15:20:54 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/05/17 15:20:54 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/05/17 15:20:54 INFO SparkContext: Successfully stopped SparkContext
+16/05/17 15:20:54 INFO ShutdownHookManager: Shutdown hook called
+16/05/17 15:20:54 INFO ShutdownHookManager: Deleting directory /tmp/spark-f75efe56-9b50-498a-8149-31bab4c7c4af
+16/05/17 15:20:54 INFO ShutdownHookManager: Deleting directory /tmp/spark-f75efe56-9b50-498a-8149-31bab4c7c4af/pyspark-808c5718-0b11-401f-b1dc-254791bc52d4
